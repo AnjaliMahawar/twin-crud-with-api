@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form, Table } from 'react-bootstrap'
 
+
 export default function Crud() {
   //state
  const[userData,setUserData]=useState({
@@ -62,12 +63,12 @@ fetch('http://192.168.1.9:8020/api/employees/', object).then(response => respons
   const addData=(e)=>{
     e.preventDefault()
     console.log('ok')
-    console.log(userData.name)
-  console.log(userData.email)
-  console.log(userData.dob)
-  console.log(userData.position)
-  console.log(userData.technologies_known)
-  console.log(userData.technologie_type)
+  //   console.log(userData.name)
+  // console.log(userData.email)
+  // console.log(userData.dob)
+  // console.log(userData.position)
+  // console.log(userData.technologies_known)
+  // console.log(userData.technologie_type)
   var dataObj = {
 
     name: userData.name,
@@ -111,17 +112,18 @@ fetch('http://192.168.1.9:8020/api/employees/', cobj
 //edit
 const edit=(currentValue)=>{
   setShow(true)
-  console.log("edit")
-  console.log(currentValue.name)
-  console.log(currentValue)
- let id=currentValue._id
+  // console.log("edit")
+  // console.log(currentValue.name)
+  console.log(currentValue._id)
+  // console.log(currentValue)
+ //let id=currentValue._id
  let name1=currentValue.name;
  let email1=currentValue.email;
  let dob1=currentValue.dob;
  let position1=currentValue.position;
  let technologies_known1=currentValue.technologies_known
  let technologie_type1=currentValue.technologie_type;
- setID1(id1)
+ setID1(currentValue._id)
  setUserData({
   name:name1,
   email:email1,
@@ -131,16 +133,19 @@ const edit=(currentValue)=>{
    technologie_type:technologie_type1
    
  }
- ,console.log("=========================================id",id))
+//,console.log("=========================================id",id1)
+)
 
 
 
 
   
 }
+//console.log("=======================================id2",id1)
 let handalEdit=(e)=>{
   e.preventDefault()
   //var id=4
+  console.log("handle edit",id1)
   var dataObj2 = {
 
     name: userData.name,
@@ -191,7 +196,9 @@ const delete_Data=(currentValue)=>{
 
   //return
   return (
+   
     <div>
+
       <Form>
       <Form.Group>
           <Form.Label>Name</Form.Label>
@@ -240,27 +247,11 @@ const delete_Data=(currentValue)=>{
         </tr>
       </thead>
       <tbody>
-      {/* { {
-                  data1.map(function(currentValue, index, arr){
-                   console.log("in",arr);
-                  //  console.log(arr[index].name);
-                    // return (
-                    //     <tr key={index}>
-                    //       <td >{arr[index].id}</td>
-                    //       <td>{arr[index].name}</td>
-                    //       <td>{arr[index].username}</td>
-                    //       <td>{arr[index].website}</td>
-
-
-                          
-                    //     </tr>
-                    // )//JSX
-                  })
-                } } */}
+     
                 {
                   data1.data2.map(function(currentValue, index, arr){
-                    console.log("in",arr);
-                    console.log(arr[index].name);
+                    // console.log("in",arr);
+                    // console.log(arr[index].name);
                     return(
                               <tr key={index}>
                             <td >{arr[index]._id}</td>

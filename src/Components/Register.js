@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+
 
 export default function Register() {
 
@@ -64,6 +66,7 @@ export default function Register() {
     //return
     return (
         <div>
+           
             <h1>Registration form</h1>
             <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -88,7 +91,7 @@ export default function Register() {
                 </Button>
             </Form>
 
-
+            <Link to="/">Already have Account?Login</Link>
         </div>
     )
 }

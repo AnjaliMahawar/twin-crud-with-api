@@ -1,11 +1,14 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+
 
 export default function Login() {
      
     //state
+    const navigate=useNavigate()
 
     const [userData, setUserData] = useState({
         name: "",    
@@ -21,6 +24,8 @@ export default function Login() {
         })
         
     }
+
+    
  const login=(e)=>{
     e.preventDefault()
     console.log("login")
@@ -37,6 +42,8 @@ export default function Login() {
           console.log('well done')
           console.log(res)
           console.log("data",res.data.message)
+          console.log("token",res.data.data.token)
+          localStorage.setItem('token',res.data.data.token)
 
           if(res.data.message=="Login Successfully")
           {
@@ -47,11 +54,15 @@ export default function Login() {
           console.log(e)
        })
   
+    
+     
+   //  navigate('crud')
  }
 
     //return
   return (
     <div>
+       
         <h1>Login From</h1>
       <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -68,7 +79,9 @@ export default function Login() {
         Submit
       </Button>
     </Form>
+    
+     <Link to="register">Don't have Account?Click for Register</Link>
+    </div> 
 
-    </div>
   )
 }
