@@ -48,6 +48,7 @@ export default function Login() {
           if(res.data.message=="Login Successfully")
           {
             swal(res.data.message);
+            navigate('crud')
           }
         
        }).catch((e)=>{
@@ -55,8 +56,8 @@ export default function Login() {
        })
   
     
-     
-   //  navigate('crud')
+  
+   
  }
 
     //return

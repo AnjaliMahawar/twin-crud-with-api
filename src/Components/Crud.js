@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Form, Table } from 'react-bootstrap'
 
 
+
 export default function Crud() {
   //state
  const[userData,setUserData]=useState({
@@ -198,7 +199,7 @@ const delete_Data=(currentValue)=>{
   return (
    
     <div>
-
+     
       <Form>
       <Form.Group>
           <Form.Label>Name</Form.Label>
